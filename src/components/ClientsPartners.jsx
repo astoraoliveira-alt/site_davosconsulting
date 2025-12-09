@@ -215,9 +215,9 @@ const ClientsPartners = () => {
                                                     <img
                                                         src={client.image}
                                                         alt="Background"
-                                                        className="w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-30 transition-all duration-700"
+                                                        className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-90 transition-all duration-700"
                                                     />
-                                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/95 to-gray-900/60" />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/60 to-transparent" />
                                                 </div>
 
                                                 {/* Content Container */}

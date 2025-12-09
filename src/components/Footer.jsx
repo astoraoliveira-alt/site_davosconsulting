@@ -15,10 +15,10 @@ const Footer = () => {
                         <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-davos-blue hover:text-white transition-colors text-gray-400">
                             <Phone size={20} />
                         </a>
-                        <a href="mailto:contato@davos.com" className="p-3 bg-white/5 rounded-full hover:bg-davos-blue hover:text-white transition-colors text-gray-400">
+                        <a href="mailto:contato@davosbr.com" className="p-3 bg-white/5 rounded-full hover:bg-davos-blue hover:text-white transition-colors text-gray-400">
                             <Mail size={20} />
                         </a>
-                        <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-davos-blue hover:text-white transition-colors text-gray-400">
+                        <a href="https://www.linkedin.com/company/davosbr/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-davos-blue hover:text-white transition-colors text-gray-400">
                             <Linkedin size={20} />
                         </a>
                     </div>
