@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Mission from './components/Mission';
 import WhoWeAre from './components/WhoWeAre';
 import Values from './components/Values';
 import Team from './components/Team';
@@ -19,7 +18,6 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Mission />
         <WhoWeAre />
         <Values />
         <Team />

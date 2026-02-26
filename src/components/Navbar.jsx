@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search, Linkedin, Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -20,6 +20,11 @@ const Navbar = () => {
         { name: 'Equipe', href: '#equipe' },
         { name: 'Cases', href: '#cases' },
         { name: 'Parceiros', href: '#parceiros' },
+    ];
+
+    const socialLinks = [
+        { name: 'Linkedin', icon: Linkedin, href: '#' },
+        { name: 'Instagram', icon: Instagram, href: '#' },
     ];
 
     return (
@@ -43,17 +48,28 @@ const Navbar = () => {
                             {link.name}
                         </a>
                     ))}
-                    <a
-                        href="#contato"
-                        className="px-5 py-2 text-sm font-medium bg-white text-davos-black rounded-full hover:bg-gray-200 transition-colors"
-                    >
-                        Contato
-                    </a>
+
+                    <div className="flex items-center space-x-5 ml-4 border-l border-white/10 pl-8">
+                        <button className="text-gray-400 hover:text-white transition-colors p-1">
+                            <Search size={20} />
+                        </button>
+                        {socialLinks.map((social) => (
+                            <a
+                                key={social.name}
+                                href={social.href}
+                                className="text-gray-400 hover:text-white transition-colors p-1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <social.icon size={20} />
+                            </a>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white z-50"
+                    className="md:hidden text-white z-50 p-2"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -63,9 +79,10 @@ const Navbar = () => {
                 <AnimatePresence>
                     {isMobileMenuOpen && (
                         <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
+                            initial={{ opacity: 0, x: '100%' }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: '100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                             className="absolute top-0 left-0 w-full h-screen bg-davos-black flex flex-col items-center justify-center space-y-8 md:hidden"
                         >
                             {navLinks.map((link) => (
@@ -73,23 +90,31 @@ const Navbar = () => {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-xl font-medium text-gray-300 hover:text-white"
+                                    className="text-2xl font-medium text-gray-300 hover:text-white"
                                 >
                                     {link.name}
                                 </a>
                             ))}
-                            <a
-                                href="#contato"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="px-8 py-3 text-base font-medium bg-white text-davos-black rounded-full"
-                            >
-                                Contato
-                            </a>
+
+                            <div className="flex items-center space-x-10 mt-8 pt-8 border-t border-white/10 w-48 justify-center">
+                                <button className="text-gray-400 hover:text-white transition-colors">
+                                    <Search size={24} />
+                                </button>
+                                {socialLinks.map((social) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.href}
+                                        className="text-gray-400 hover:text-white transition-colors"
+                                    >
+                                        <social.icon size={24} />
+                                    </a>
+                                ))}
+                            </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
             </div>
-        </nav>
+        </nav >
     );
 };
 

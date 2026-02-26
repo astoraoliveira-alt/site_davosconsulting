@@ -41,7 +41,7 @@ const TypewriterEffect = ({ words, waitTime = 3000 }) => {
             <motion.span
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
-                className="inline-block w-[2px] h-[1em] bg-davos-blue ml-1 align-middle"
+                className="inline-block w-[2px] h-[1em] bg-davos-orange ml-1 align-middle"
             />
         </span>
     );

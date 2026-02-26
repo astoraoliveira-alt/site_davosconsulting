@@ -14,6 +14,7 @@ export default {
           light: '#f5f5f7',
           blue: '#0044cc', // Strong corporate blue
           accent: '#0066ff', // Brighter blue for interactions
+          orange: '#FF4D00', // Signal Orange for Lead Capture impact
         }
       },
       fontFamily: {
