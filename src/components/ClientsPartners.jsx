@@ -123,10 +123,9 @@ const ClientsPartners = () => {
     );
 
     return (
-        <div className="bg-davos-black">
+        <>
             {/* PARTNERS SECTION */}
-            <SectionWrapper id="parceiros" className="pt-12 pb-32 relative bg-[#050505]">
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <SectionWrapper id="parceiros" className="pt-24 pb-32 relative bg-[#001533] scroll-mt-20">
 
                 <div className="container mx-auto px-6 relative z-10">
                     <motion.div
@@ -187,11 +186,11 @@ const ClientsPartners = () => {
             </SectionWrapper>
 
             {/* CLIENTS SECTION */}
-            <SectionWrapper id="clientes" className="pt-12 pb-32 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
+            <SectionWrapper id="clientes" className="pt-24 pb-32 relative overflow-hidden bg-davos-light">
+                <div className="absolute inset-0 opacity-[0.4] pointer-events-none">
                     <div className="absolute inset-0" style={{
-                        backgroundImage: `radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
-                        backgroundSize: '30px 30px'
+                        backgroundImage: `radial-gradient(circle, #001533 0.5px, transparent 0.5px)`,
+                        backgroundSize: '40px 40px'
                     }} />
                 </div>
 
@@ -202,10 +201,10 @@ const ClientsPartners = () => {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-                            Nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-davos-blue to-cyan-400">Clientes</span>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-davos-black leading-tight">
+                            Nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-davos-blue to-cyan-600">Clientes</span>
                         </h2>
-                        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
                             A Davos é parceira de confiança das maiores marcas do mercado global.
                         </p>
                     </motion.div>
@@ -221,27 +220,27 @@ const ClientsPartners = () => {
                                 className="grid md:grid-cols-2 gap-8 absolute w-full"
                             >
                                 {visibleClients.map((client) => (
-                                    <div key={client.id} className="group h-full relative rounded-3xl border border-white/10 overflow-hidden bg-gray-900/50 backdrop-blur-sm transition-all duration-500 hover:border-davos-blue/40">
+                                    <div key={client.id} className="group h-full relative rounded-3xl border border-gray-200/60 overflow-hidden bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:border-davos-blue/30">
                                         <div className="absolute inset-0">
-                                            <img src={client.image} alt="" className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/80 to-transparent" />
+                                            <img src={client.image} alt="" className="w-full h-full object-cover opacity-[0.12] group-hover:scale-105 transition-transform duration-700" />
+                                            <div className="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-transparent" />
                                         </div>
                                         <div className="relative p-8 z-10 flex flex-col h-full">
                                             <div className="flex items-center gap-4 mb-6">
-                                                <div className="w-14 h-14 rounded-xl bg-white p-2 shadow-xl overflow-hidden">
+                                                <div className="w-14 h-14 rounded-xl bg-white p-2 shadow-lg overflow-hidden border border-gray-100">
                                                     <img src={client.logo} alt="" className="w-full h-full object-contain" />
                                                 </div>
                                                 <div>
-                                                    <h3 className="text-xl font-bold text-white">{client.name}</h3>
-                                                    <p className="text-xs text-davos-blue uppercase tracking-widest font-semibold">{client.sector}</p>
+                                                    <h3 className="text-xl font-black text-davos-black tracking-tight">{client.name}</h3>
+                                                    <p className="text-[10px] text-davos-blue font-black uppercase tracking-[0.2em] leading-none mb-1">{client.sector}</p>
                                                 </div>
                                             </div>
-                                            <p className="text-gray-300 mb-8 leading-relaxed line-clamp-3">{client.summary}</p>
+                                            <p className="text-gray-800 mb-8 leading-relaxed line-clamp-3 text-sm font-medium">{client.summary}</p>
                                             <div className="grid grid-cols-2 gap-4 mt-auto">
                                                 {client.stats.map((stat, idx) => (
-                                                    <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/5">
-                                                        <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1 font-bold">{stat.label}</p>
-                                                        <p className="text-xl font-bold text-white">{stat.value}</p>
+                                                    <div key={idx} className="p-4 rounded-2xl bg-gray-50/80 backdrop-blur-sm border border-gray-100">
+                                                        <p className="text-[9px] text-gray-500 uppercase tracking-widest mb-1.5 font-bold">{stat.label}</p>
+                                                        <p className="text-xl font-black text-davos-black tracking-tighter">{stat.value}</p>
                                                     </div>
                                                 ))}
                                             </div>
@@ -252,14 +251,14 @@ const ClientsPartners = () => {
                         </AnimatePresence>
                     </div>
 
-                    <div className="flex justify-center gap-3 mt-8">
+                    <div className="flex justify-center gap-3 mt-12">
                         {Array.from({ length: totalPages }).map((_, idx) => (
-                            <button key={idx} onClick={() => setCurrentIndex(idx)} className={`h-[2px] rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-12 bg-davos-blue' : 'w-4 bg-gray-700 hover:bg-gray-500'}`} />
+                            <button key={idx} onClick={() => setCurrentIndex(idx)} className={`h-[3px] rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-12 bg-davos-blue' : 'w-4 bg-gray-200 hover:bg-gray-300'}`} />
                         ))}
                     </div>
                 </div>
             </SectionWrapper>
-        </div>
+        </>
     );
 };
 
