@@ -3,7 +3,7 @@ import { Mail, Linkedin, Phone } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer id="contato" className="bg-davos-black border-t border-white/10 pt-16 pb-8">
+        <footer id="footer" className="bg-davos-black border-t border-white/10 pt-16 pb-8">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center mb-12">
                     <div className="mb-8 md:mb-0 text-center md:text-left">

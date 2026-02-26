@@ -13,14 +13,18 @@ const SectionWrapper = ({ children, className = "", id = "" }) => {
     const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
 
     return (
-        <motion.section
+        <section
             ref={ref}
             id={id}
-            style={{ opacity, y, scale }}
             className={`relative ${className}`}
         >
-            {children}
-        </motion.section>
+            <motion.div
+                style={{ opacity, y, scale }}
+                className="w-full h-full"
+            >
+                {children}
+            </motion.div>
+        </section>
     );
 };
 

@@ -15,11 +15,11 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Quem Somos', href: '#quem-somos' },
-        { name: 'Valores', href: '#valores' },
-        { name: 'Equipe', href: '#equipe' },
         { name: 'Cases', href: '#cases' },
         { name: 'Parceiros', href: '#parceiros' },
+        { name: 'Clientes', href: '#clientes' },
+        { name: 'Trabalhe Conosco', href: '#trabalhe-conosco' },
+        { name: 'Fale Conosco', href: '#fale-conosco' },
     ];
 
     const socialLinks = [

@@ -1,126 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Lightbulb, Target, Rocket, Award, TrendingUp } from 'lucide-react';
+import { Brain, Lightbulb, Target, Rocket, Award, TrendingUp, Mail, ArrowRight, Zap, Users2 } from 'lucide-react';
 import SectionWrapper from './ui/SectionWrapper';
 
 const qualities = [
-    { icon: <Brain size={24} />, label: "Pensamento Estratégico" },
-    { icon: <Lightbulb size={24} />, label: "Inovação Constante" },
-    { icon: <Target size={24} />, label: "Foco em Resultados" },
-    { icon: <Rocket size={24} />, label: "Execução Ágil" },
-    { icon: <Award size={24} />, label: "Excelência Técnica" },
-    { icon: <TrendingUp size={24} />, label: "Crescimento Contínuo" },
+    { icon: <Brain size={24} />, title: "Mentes Inquietas", label: "Pessoas que questionam o status quo e buscam soluções fora da caixa." },
+    { icon: <Zap size={24} />, title: "Pragmatismo", label: "Foco no que gera resultado real e imediato para o cliente." },
+    { icon: <Target size={24} />, title: "Autonomia", label: "Ambiente que valoriza a proatividade e a tomada de decisão." },
+    { icon: <Rocket size={24} />, title: "Crescimento Ágil", label: "Evolução constante em um ambiente de alta performance." },
 ];
 
 const Team = () => {
     return (
-        <SectionWrapper id="equipe" className="py-32 bg-davos-dark relative overflow-hidden">
-            {/* Animated background grid */}
-            <div className="absolute inset-0 opacity-[0.03]">
+        <SectionWrapper id="trabalhe-conosco" className="pt-16 pb-32 bg-davos-dark relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute inset-0 opacity-[0.02]">
                 <div className="absolute inset-0" style={{
                     backgroundImage: `linear-gradient(rgba(0, 102, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.5) 1px, transparent 1px)`,
-                    backgroundSize: '50px 50px'
+                    backgroundSize: '80px 80px'
                 }} />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-                    {/* Left side - Content */}
+                <div className="max-w-4xl mx-auto text-center mb-20">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">
-                            Nossa <span className="text-davos-blue">Equipe</span>
+                        <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white leading-tight">
+                            Redefina o <span className="text-davos-blue italic">Futuro</span> conosco
                         </h2>
+                        <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed">
+                            Na Davos, não apenas implementamos tecnologia; nós desenhamos estratégias que mudam o patamar de grandes negócios. Buscamos profissionais de alto nível que queiram um ambiente de liberdade com responsabilidade.
+                        </p>
+                    </motion.div>
+                </div>
 
-                        <div className="space-y-6 mb-10">
-                            <p className="text-xl text-gray-300 leading-relaxed">
-                                Acreditamos que a verdadeira <span className="text-white font-semibold">inovação</span> nasce da diversidade de pensamentos.
-                            </p>
-
-                            <p className="text-lg text-gray-400 leading-relaxed">
-                                Nossa equipe é formada por <span className="text-davos-blue font-medium">mentes criativas</span>, estrategistas experientes e especialistas em tecnologia, unidos pelo propósito de gerar impacto positivo e duradouro.
-                            </p>
-
-                            <p className="text-lg text-gray-400 leading-relaxed">
-                                Valorizamos a <span className="text-white font-medium">multidisciplinaridade</span> e a capacidade de adaptação para enfrentar os desafios mais complexos do mercado.
-                            </p>
-                        </div>
-
-                        {/* CTA */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+                    {qualities.map((q, idx) => (
                         <motion.div
+                            key={idx}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
-                            className="inline-block"
+                            transition={{ delay: idx * 0.1 }}
+                            className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-davos-blue/30 transition-all group"
                         >
-                            <div className="px-6 py-3 rounded-full bg-davos-blue/10 border border-davos-blue/30 backdrop-blur-sm">
-                                <p className="text-davos-blue font-medium">
-                                    💡 Experiência média de <span className="text-white font-bold">15+ anos</span> por profissional
-                                </p>
+                            <div className="w-12 h-12 rounded-xl bg-davos-blue/20 flex items-center justify-center text-davos-blue mb-6 group-hover:scale-110 transition-transform">
+                                {q.icon}
                             </div>
+                            <h3 className="text-lg font-bold text-white mb-2">{q.title}</h3>
+                            <p className="text-sm text-gray-500 leading-relaxed">{q.label}</p>
                         </motion.div>
-                    </motion.div>
-
-                    {/* Right side - Visual representation */}
-                    <div className="relative">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="relative"
-                        >
-                            {/* Main card */}
-                            <div className="relative rounded-3xl bg-gradient-to-br from-davos-blue/20 via-purple-600/10 to-transparent border border-white/10 p-8 backdrop-blur-sm">
-
-                                {/* Qualities grid */}
-                                <div className="grid grid-cols-2 gap-4">
-                                    {qualities.map((quality, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                                            whileHover={{ scale: 1.05, y: -5 }}
-                                            className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-davos-blue/50 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
-                                        >
-                                            <div className="flex flex-col items-center text-center gap-3">
-                                                <div className="w-12 h-12 rounded-xl bg-davos-blue/20 flex items-center justify-center text-davos-blue group-hover:bg-davos-blue group-hover:text-white transition-all duration-300">
-                                                    {quality.icon}
-                                                </div>
-                                                <p className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                                                    {quality.label}
-                                                </p>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-
-                                {/* Floating badge */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.6 }}
-                                    className="absolute -top-4 -right-4 px-6 py-3 rounded-full bg-gradient-to-r from-davos-blue to-purple-600 shadow-lg shadow-davos-blue/50"
-                                >
-                                    <p className="text-white font-bold text-sm">Time Multidisciplinar</p>
-                                </motion.div>
-                            </div>
-
-                            {/* Decorative elements */}
-                            <div className="absolute -z-10 top-10 -right-10 w-64 h-64 bg-davos-blue/20 rounded-full blur-[100px]" />
-                            <div className="absolute -z-10 -bottom-10 -left-10 w-64 h-64 bg-purple-600/20 rounded-full blur-[100px]" />
-                        </motion.div>
-                    </div>
+                    ))}
                 </div>
+
+                {/* Call to Action Card */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="relative p-8 md:p-10 rounded-3xl bg-davos-blue border border-davos-blue/50 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl shadow-davos-blue/20 max-w-5xl mx-auto"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent" />
+
+                    <div className="relative z-10 max-w-md text-center md:text-left">
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                            Pronto para o próximo desafio?
+                        </h3>
+                        <p className="text-white/80 text-base md:text-lg">
+                            Envie seu currículo ou portfólio diretamente para nossa equipe de talentos.
+                        </p>
+                    </div>
+
+                    <div className="relative z-10 flex-shrink-0">
+                        <a
+                            href="mailto:contato@davosbr.com"
+                            className="group flex items-center gap-3 bg-white text-davos-blue px-8 py-4 rounded-xl font-bold text-base md:text-lg hover:bg-gray-100 transition-all shadow-xl hover:translate-y-[-2px]"
+                        >
+                            Enviar E-mail <Mail size={20} className="group-hover:translate-x-1 transition-transform" />
+                        </a>
+                    </div>
+                </motion.div>
+
             </div>
         </SectionWrapper>
     );

@@ -79,10 +79,10 @@ const cases = [
 ];
 
 const CaseColumn = ({ caseData, isFirst }) => (
-    <div className={`flex flex-col h-full p-8 lg:p-12 transition-all duration-500 ${isFirst ? 'lg:border-r border-white/5' : ''}`}>
+    <div className={`flex flex-col h-full p-6 lg:p-8 transition-all duration-500 ${isFirst ? 'lg:border-r border-white/5' : ''}`}>
         {/* Context Header */}
-        <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
+        <div className="mb-8">
+            <div className="flex items-center gap-3 mb-4">
                 <span className="px-3 py-1 bg-white/5 border border-white/10 text-davos-orange text-[9px] font-bold uppercase tracking-[0.2em] rounded-sm">
                     {caseData.industry}
                 </span>
@@ -90,20 +90,20 @@ const CaseColumn = ({ caseData, isFirst }) => (
                 <span className="text-gray-500 text-[9px] font-bold uppercase tracking-widest">Case Sucesso</span>
             </div>
 
-            <h3 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter leading-none">
+            <h3 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tighter leading-none">
                 {caseData.client}
             </h3>
 
-            <p className="text-lg text-gray-400 font-light leading-relaxed">
+            <p className="text-base text-gray-400 font-light leading-relaxed">
                 {caseData.description}
             </p>
         </div>
 
         {/* Dual Lists */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 mb-12 flex-grow">
-            <div className="space-y-6">
-                <h4 className="text-white font-bold uppercase tracking-widest text-[10px] opacity-40">Impacto Direto</h4>
-                <ul className="space-y-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 mb-8 flex-grow">
+            <div className="space-y-4">
+                <h4 className="text-white font-bold uppercase tracking-widest text-[9px] opacity-40">Impacto Direto</h4>
+                <ul className="space-y-2">
                     {caseData.impacts.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 group/item">
                             <div className="mt-1.5 min-w-[5px] h-[5px] rounded-full bg-davos-orange shadow-[0_0_8px_rgba(255,102,0,0.6)]" />
@@ -113,9 +113,9 @@ const CaseColumn = ({ caseData, isFirst }) => (
                 </ul>
             </div>
 
-            <div className="space-y-6">
-                <h4 className="text-white font-bold uppercase tracking-widest text-[10px] opacity-40">Benefícios</h4>
-                <ul className="space-y-4">
+            <div className="space-y-4">
+                <h4 className="text-white font-bold uppercase tracking-widest text-[9px] opacity-40">Benefícios</h4>
+                <ul className="space-y-2">
                     {caseData.benefits.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 group/item">
                             <div className="mt-1.5 min-w-[5px] h-[5px] rounded-full bg-davos-blue shadow-[0_0_8px_rgba(0,123,255,0.6)]" />
@@ -127,10 +127,10 @@ const CaseColumn = ({ caseData, isFirst }) => (
         </div>
 
         {/* Big Number Card */}
-        <div className="mt-auto pt-8 border-t border-white/5">
+        <div className="mt-auto pt-6 border-t border-white/5">
             <motion.div
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="relative p-8 rounded-2xl bg-white/5 border border-white/10 overflow-hidden text-center group"
+                className="relative p-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden text-center group"
             >
                 <div className={`absolute inset-0 bg-gradient-to-br ${caseData.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700`} />
 
@@ -142,8 +142,8 @@ const CaseColumn = ({ caseData, isFirst }) => (
                     ))}
                 </div>
 
-                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">{caseData.mainMetric.label}</p>
-                <span className="text-6xl lg:text-7xl font-black text-white tracking-tighter block mb-2 leading-none">
+                <p className="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">{caseData.mainMetric.label}</p>
+                <span className="text-4xl lg:text-5xl font-black text-white tracking-tighter block mb-1 leading-none">
                     {caseData.mainMetric.value}
                 </span>
                 <div className="flex justify-center text-davos-orange/30">
@@ -166,7 +166,7 @@ const Cases = () => {
     const currentCases = cases.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
     return (
-        <SectionWrapper id="cases" className="py-32 bg-davos-black relative overflow-hidden">
+        <SectionWrapper id="cases" className="pt-24 pb-32 bg-davos-black relative overflow-hidden">
             {/* Dynamic Glow background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-davos-blue/5 rounded-full blur-[150px]" />
