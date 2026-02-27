@@ -2,15 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 const IMAGES = [
-    { src: '/1.png', transition: { initial: { opacity: 0, scale: 1.1 }, animate: { opacity: 1, scale: 1 }, exit: { opacity: 0, scale: 0.95 } } },
-    { src: '/2.png', transition: { initial: { opacity: 0, x: 100 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: -50 } } },
-    { src: '/3.png', transition: { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -20 } } },
-    { src: '/4.png', transition: { initial: { opacity: 0, filter: 'blur(20px)' }, animate: { opacity: 1, filter: 'blur(0px)' }, exit: { opacity: 0, filter: 'blur(10px)' } } },
-    { src: '/5.png', transition: { initial: { opacity: 0, scale: 0.9 }, animate: { opacity: 1, scale: 1 }, exit: { opacity: 0, scale: 1.05 } } },
-    { src: '/6.png', transition: { initial: { opacity: 0, x: -100 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: 50 } } },
-    { src: '/7.png', transition: { initial: { opacity: 0, scale: 1.2 }, animate: { opacity: 1, scale: 1 }, exit: { opacity: 0, scale: 0.8 } } },
-    { src: '/8.png', transition: { initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -50 } } },
-    { src: '/9.png', transition: { initial: { opacity: 0, rotate: -5, scale: 1.1 }, animate: { opacity: 1, rotate: 0, scale: 1 }, exit: { opacity: 0, rotate: 5, scale: 0.95 } } },
+    { src: '/202602262200.mp4', transition: { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } } },
 ];
 
 const TECH_FLOW = [
@@ -118,12 +110,7 @@ const Hero = () => {
         offset: ["start start", "end end"]
     });
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % IMAGES.length);
-        }, 6000);
-        return () => clearInterval(timer);
-    }, []);
+    // Video loop is handled by onEnded in the <video> tag
 
     // Efficiency Coordinated Animation Cycle
     useEffect(() => {
@@ -253,7 +240,14 @@ const Hero = () => {
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             className="absolute inset-0"
                         >
-                            <div className="w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${IMAGES[currentImage].src})` }} />
+                            <video
+                                src={IMAGES[currentImage].src}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                className="w-full h-full object-cover scale-110"
+                            />
                             <div className="absolute inset-0 bg-black/85" />
                         </motion.div>
                     </AnimatePresence>
@@ -827,15 +821,9 @@ const Hero = () => {
                 </motion.div>
 
                 {/* Scroll Indicators */}
-                <motion.div style={{ opacity: indicatorsOpacity }} className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-40">
-                    {IMAGES.map((_, index) => (
-                        <div key={index} className="relative h-[2px] w-12 bg-white/10 overflow-hidden">
-                            {index === currentImage && (
-                                <motion.div initial={{ x: '-100%' }} animate={{ x: '100%' }} transition={{ duration: 6, ease: "linear" }} className="absolute inset-0 bg-white" />
-                            )}
-                        </div>
-                    ))}
-                </motion.div>
+                {/* Scroll Indicators removed for single video */}
+
+
             </div>
         </div >
     );
