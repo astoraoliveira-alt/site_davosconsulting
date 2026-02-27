@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 const IMAGES = [
-    { src: '/202602262200.mp4', transition: { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } } },
+    { src: '/video1.mp4', transition: { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } } },
+    { src: '/video2.mp4', transition: { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } } },
+    { src: '/video3.mp4', transition: { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } } },
 ];
 
 const TECH_FLOW = [
@@ -244,8 +246,8 @@ const Hero = () => {
                                 src={IMAGES[currentImage].src}
                                 autoPlay
                                 muted
-                                loop
                                 playsInline
+                                onEnded={() => setCurrentImage((prev) => (prev + 1) % IMAGES.length)}
                                 className="w-full h-full object-cover scale-110"
                             />
                             <div className="absolute inset-0 bg-black/85" />
